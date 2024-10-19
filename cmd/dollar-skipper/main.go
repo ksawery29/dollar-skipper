@@ -5,25 +5,15 @@ import (
 	"os"
 	"os/exec"
 	"runtime"
-	"strings"
 )
 
 func runCommand(args []string) {
 	var cmd *exec.Cmd
 
-	// loop through args and add quotes around arguments that contain spaces
-	for i, arg := range args {
-		// if the argument contains a space and isnt already wrapped in quotes, add them
-		if strings.Contains(arg, " ") && !strings.HasPrefix(arg, "\"") && !strings.HasSuffix(arg, "\"") {
-			args[i] = "\"" + arg + "\""
-		}
-	}
-
-	// set the command to use based on the OS
 	if runtime.GOOS == "windows" {
 		cmd = exec.Command("cmd", append([]string{"/C"}, args...)...)
 	} else {
-		cmd = exec.Command("/bin/sh", append([]string{"-c"}, args...)...)
+		cmd = exec.Command(args[0], args[1:]...)
 	}
 
 	// set the stdout, stderr and stdin to the current process
