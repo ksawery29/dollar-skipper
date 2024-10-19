@@ -27,7 +27,7 @@ func runCommand(args []string) {
 	err := cmd.Run()
 
 	if err != nil {
-		fmt.Printf("Error running command: %v\n", err)
+		fmt.Fprintf(os.Stderr, "dollar-skipper: Error running command: %v\n", err)
 		os.Exit(1)
 	}
 }
