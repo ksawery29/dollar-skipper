@@ -42,4 +42,4 @@ After that, you will most likely want to move the binary to somewhere in your PA
 
 ## License
 
-This project is licensed under the Unlicense. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the `Unlicense` license. See the [LICENSE](LICENSE) file for more details.
